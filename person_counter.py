@@ -91,6 +91,7 @@ class PersonCounter(object):
                 return sector
 
     def get_frame(self):
+        time.sleep(0.1)
         """Se ejecuta en cada frame"""
         ret, frame = self.vs.read()
         # frame = frame[1] if not self.input_video else frame
@@ -203,23 +204,23 @@ class PersonCounter(object):
                     -1
                 )
 
-        for sector, (start, end) in self.sectors.items():
-            cv2.rectangle(
-                frame,
-                start,
-                end,
-                (0, 255, 255),
-                2
-            )
-            cv2.putText(
-                frame,
-                str(self.sector_points[sector][0]),
-                (start[0], start[1] + 15),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.5,
-                (0, 255, 0),
-                2
-            )
+        # for sector, (start, end) in self.sectors.items():
+        #     cv2.rectangle(
+        #         frame,
+        #         start,
+        #         end,
+        #         (0, 255, 255),
+        #         2
+        #     )
+        #     cv2.putText(
+        #         frame,
+        #         str(self.sector_points[sector][0]),
+        #         (start[0], start[1] + 15),
+        #         cv2.FONT_HERSHEY_SIMPLEX,
+        #         0.5,
+        #         (0, 255, 0),
+        #         2
+        #     )
         self.totalFrames += 1
         self.fps.update()
 
